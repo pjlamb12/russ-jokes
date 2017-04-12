@@ -1,0 +1,8 @@
+{{ jokes | async | json }}
+<md-list>
+	<md-list-item>Joke One</md-list-item>
+	<md-list-item>Joke Two</md-list-item>
+	<md-list-item>Joke Three</md-list-item>
+	<md-list-item>Joke Four</md-list-item>
+	<md-list-item *ngFor="let joke of jokes | async"{{ joke.opening }}></md-list-item>
+</md-list>
