@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from "angularfire2";
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
 @Component({
@@ -9,8 +9,8 @@ import { AngularFire, FirebaseListObservable } from "angularfire2";
 })
 export class JokesListComponent implements OnInit {
 	public jokes: FirebaseListObservable<any[]>;
-	constructor(af: AngularFire) {
-		this.jokes = af.database.list('/jokes');
+	constructor(afdb: AngularFireDatabase) {
+		this.jokes = afdb.list('/jokes');
 		console.log(this.jokes);
 		// this.jokes.push({ opening: 'Why did the skunk cross the road?', punchline: 'To get to do odor side.' });
 	}
