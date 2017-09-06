@@ -1,3 +1,7 @@
-<md-list *ngIf="jokes">
-	<md-list-item *ngFor="let joke of jokes | async">{{ joke.opening }}<br />{{ joke.punchline }}</md-list-item>
-</md-list>
+<md-progress-spinner *ngIf="!jokes" mode="indeterminate"></md-progress-spinner>
+<div *ngIf="jokes">
+	<md-card *ngFor="let joke of jokes | async">
+		<md-card-title>{{ joke.opening }}</md-card-title>
+		<md-card-content>{{ joke.punchline }}</md-card-content>
+	</md-card>
+</div>
